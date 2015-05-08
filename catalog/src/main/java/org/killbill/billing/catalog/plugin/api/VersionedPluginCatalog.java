@@ -26,17 +26,17 @@ public interface VersionedPluginCatalog {
      *
      * @return the name of the catalog
      */
-    public String getCatalogName();
+    String getCatalogName();
 
     /**
      *
      * @return the {@code BillingMode} for that catalog
      */
-    public BillingMode getRecurringBillingMode();
+    BillingMode getRecurringBillingMode();
 
     /**
      *
      * @return the {@code StandalonePluginCatalog} for each version
      */
-    public Iterable<StandalonePluginCatalog> getStandalonePluginCatalogs();
+    Iterable<StandalonePluginCatalog> getStandalonePluginCatalogs();
 }
