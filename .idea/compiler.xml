@@ -59,8 +59,16 @@
         <processorPath useClasspath="true" />
         <module name="killbill-plugin-api-payment" />
       </profile>
+      <profile default="false" name="Annotation profile for catalog" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="catalog" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="catalog" target="1.6" />
       <module name="killbill-plugin-api" target="1.6" />
       <module name="killbill-plugin-api-currency" target="1.6" />
       <module name="killbill-plugin-api-invoice" target="1.6" />
