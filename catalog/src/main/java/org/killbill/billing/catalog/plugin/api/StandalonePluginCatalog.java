@@ -19,8 +19,16 @@
 package org.killbill.billing.catalog.plugin.api;
 
 import org.joda.time.DateTime;
+import org.killbill.billing.catalog.api.BillingActionPolicy;
+import org.killbill.billing.catalog.api.BillingAlignment;
+import org.killbill.billing.catalog.api.CatalogApiException;
 import org.killbill.billing.catalog.api.Currency;
 import org.killbill.billing.catalog.api.Plan;
+import org.killbill.billing.catalog.api.PlanAlignmentChange;
+import org.killbill.billing.catalog.api.PlanAlignmentCreate;
+import org.killbill.billing.catalog.api.PlanChangeResult;
+import org.killbill.billing.catalog.api.PlanPhaseSpecifier;
+import org.killbill.billing.catalog.api.PlanSpecifier;
 import org.killbill.billing.catalog.api.PriceList;
 import org.killbill.billing.catalog.api.Product;
 import org.killbill.billing.catalog.api.Unit;
@@ -63,10 +71,19 @@ public interface StandalonePluginCatalog {
      */
     Iterable<PriceList> getPriceLists();
 
-//    /**
-//     *
-//     * @return the {@code PlanRules} defining the behavior of the catalog
-//     */
-//    PlanRules getRules();
 
+    BillingActionPolicy planChangePolicy(PlanPhaseSpecifier from,
+                                         PlanSpecifier to) throws CatalogApiException;
+
+    PlanChangeResult planChange(PlanPhaseSpecifier from,
+                                PlanSpecifier to) throws CatalogApiException;
+
+    BillingActionPolicy planCancelPolicy(PlanPhaseSpecifier planPhase) throws CatalogApiException;
+
+    PlanAlignmentCreate planCreateAlignment(PlanSpecifier specifier) throws CatalogApiException;
+
+    BillingAlignment billingAlignment(PlanPhaseSpecifier planPhase) throws CatalogApiException;
+
+    PlanAlignmentChange planChangeAlignment(PlanPhaseSpecifier from,
+                                            PlanSpecifier to) throws CatalogApiException;
 }
