@@ -22,6 +22,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="killbill-plugin-api-catalog" />
         <module name="killbill-plugin-api-currency" />
         <module name="killbill-plugin-api-invoice" />
         <module name="killbill-plugin-api-notification" />
@@ -29,17 +30,10 @@
         <module name="killbill-plugin-api-retry" />
         <module name="killbill-plugin-api-routing" />
       </profile>
-      <profile default="false" name="Annotation profile for catalog" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="catalog" />
-      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="catalog" target="1.6" />
       <module name="killbill-plugin-api" target="1.6" />
+      <module name="killbill-plugin-api-catalog" target="1.6" />
       <module name="killbill-plugin-api-currency" target="1.6" />
       <module name="killbill-plugin-api-invoice" target="1.6" />
       <module name="killbill-plugin-api-notification" target="1.6" />
@@ -49,4 +43,3 @@
     </bytecodeTargetLevel>
   </component>
 </project>
-
